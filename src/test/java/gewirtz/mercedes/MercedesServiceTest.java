@@ -18,13 +18,12 @@ public class MercedesServiceTest {
         //when
         Single<MercedesImageID> single = service.getImageID("WDD2132231A444556",
                 false, false, true, true);
-        MercedesImageID imageId = single.blockingGet();
+        MercedesImageID image = single.blockingGet();
 
         //then
-        assertNotNull(imageId);
-        assertNotNull(imageId.EXT150);
-        assertNotNull(imageId.EXT330);
-        assertNotNull(imageId.INT1);
+        assertNotNull(image);
+        assertNotNull(image.INT1);
+        assertNotNull(image.EXT150);
 
     }
 }

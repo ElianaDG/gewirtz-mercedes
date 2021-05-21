@@ -11,16 +11,17 @@
             xmlns:fx="http://javafx.com/fxml"
             prefHeight="400.0" prefWidth="600.0">
 
-    <Button fx:id="getImage" text="Get Image" onAction="#onGetImage"/>
-    <TextField fx:id="vehicleIdTextField"/>
+    <Button fx:id="getImage" text="Get Image" onAction="#onGetImage" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+    <TextField fx:id="vehicleIdTextField" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
 
-    <RadioButton fx:id="interior" text="Interior View"/>
-    <RadioButton fx:id="exterior" text="Exterior View"/>
+    <RadioButton fx:id="interior" text="Interior View" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+    <RadioButton fx:id="exterior" text="Exterior View" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
 
-    <CheckBox fx:id="roofOpenCheck" text="Roof Open"/>
-    <CheckBox fx:id="nightCheck" text="Night View"/>
-    <CheckBox fx:id="backgroundCheck" text="Background"/>
-    <CheckBox fx:id="jpegCheck" text="jpeg"/>
+    <Label text="Details:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+    <CheckBox fx:id="roofOpenCheck" text="Roof Open" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+    <CheckBox fx:id="nightCheck" text="Night View" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+    <CheckBox fx:id="backgroundCheck" text="Background" GridPane.rowIndex="7" GridPane.columnIndex="0"/>
+    <CheckBox fx:id="jpegCheck" text="jpeg" GridPane.rowIndex="8" GridPane.columnIndex="0"/>
 
 
     <ImageView fx:id="vehicleImage"/>

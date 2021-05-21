@@ -9,10 +9,12 @@
 <?import javafx.scene.image.ImageView?>
 <GridPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            prefHeight="400.0" prefWidth="600.0">
+            prefHeight="400.0" prefWidth="600.0"
+            stylesheets="mercedes_application.css">
 
-    <Button fx:id="getImage" text="Get Image" onAction="#onGetImage" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
-    <TextField fx:id="vehicleIdTextField" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+    <Label text="Vehicle ID:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+    <Button fx:id="getImage" text="Get Image" onAction="#onGetImage" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+    <TextField fx:id="vehicleIdTextField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
 
     <RadioButton fx:id="interior" text="Interior View" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
     <RadioButton fx:id="exterior" text="Exterior View" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
@@ -23,8 +25,7 @@
     <CheckBox fx:id="backgroundCheck" text="Background" GridPane.rowIndex="7" GridPane.columnIndex="0"/>
     <CheckBox fx:id="jpegCheck" text="jpeg" GridPane.rowIndex="8" GridPane.columnIndex="0"/>
 
-
-    <ImageView fx:id="vehicleImage"/>
+    <ImageView fx:id="vehicleImage" GridPane.rowIndex="9" GridPane.columnIndex="0"/>
 
     <fx:define>
         <ArrayList fx:id="toggleUnits">

@@ -67,9 +67,10 @@ public class MercedesController {
     }
 
     public void displayImage(MercedesImageID imageId){
-        String viewId = interior.isSelected() ? imageId.INT1 : imageId.EXT150;
-        String imageUrl = "https://api.mercedes-benz.com/vehicle_images/v1/images/" + viewId;
-        vehicleImage.setImage(new Image(imageUrl));
+        String viewId = interior.isSelected() ? imageId.INT1 : imageId.EXT150.substring(0, (imageId.EXT150.length() - 1)).concat("%3D");
+        String imageUrl = "https://api.mercedes-benz.com/tryout/vehicle_images/v1/images/".concat(viewId);
+        String fullUrl = imageUrl.concat("?apikey=d705585c-a672-11ea-bb37-0242ac130002");
+        vehicleImage.setImage(new Image(fullUrl));
     }
 
     public void onError(Throwable throwable) {

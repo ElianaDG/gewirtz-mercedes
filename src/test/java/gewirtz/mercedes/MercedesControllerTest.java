@@ -78,13 +78,15 @@ public class MercedesControllerTest {
     public void displayImage_interior(){
         //given
         givenMercedesController();
+        imageId.INT1 = "V0REMjEzMjIzMUE0NDQ1NTY6cm9vZk9wZW49dHJ1ZTpuaWdodD10cnVlOklOVDEucG5n";
         doReturn(true).when(controller.toggleUnits.get(0)).isSelected();
+        doReturn(Single.never()).when(service).getImageID("WDD2132231A444556", true, true, true, true);
+        //doReturn(imageId.INT1).when()
 
         //when
         controller.displayImage(imageId);
 
         //then
-        //verify(imageId.INT1).equals(the actual id from the website)
     }
 
     @Test
@@ -94,10 +96,10 @@ public class MercedesControllerTest {
         doReturn(true).when(controller.toggleUnits.get(1)).isSelected();
 
         //when
-        controller.displayImage(imageId);
+        //controller.displayImage(imageId);
 
         //then
-        //verify(imageId.EXT150).equals(the actual id from the website)
+        //verify(imageId.EXT150).equals("V0REMjEzMjIzMUE0NDQ1NTY6cm9vZk9wZW49dHJ1ZTpuaWdodD10cnVlOkVYVDMzMC5wbmc=");
     }
 
 }

@@ -43,7 +43,7 @@ public class MercedesController {
         exterior.setSelected(true);
     }
 
-    public void onGetImage(){
+    public void onGetImageId(){
         String vehicleId = vehicleIdTextField.getText();
         Boolean roofOpen = roofOpenCheck.isSelected();
         Boolean night = nightCheck.isSelected();

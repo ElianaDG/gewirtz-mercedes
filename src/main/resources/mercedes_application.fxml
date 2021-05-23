@@ -13,7 +13,7 @@
             stylesheets="mercedes_application.css">
 
     <Label text="Vehicle ID:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
-    <Button fx:id="getImage" text="Get Image" onAction="#onGetImage" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+    <Button fx:id="getImage" text="Get Image" onAction="#onGetImageId" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
     <TextField fx:id="vehicleIdTextField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
 
     <RadioButton fx:id="interior" text="Interior View" GridPane.rowIndex="2" GridPane.columnIndex="0"/>

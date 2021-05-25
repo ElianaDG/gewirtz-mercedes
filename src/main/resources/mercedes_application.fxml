@@ -7,14 +7,25 @@
 <?import javafx.scene.layout.*?>
 
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.cell.ComboBoxListCell?>
+<?import javafx.collections.FXCollections?>
 <GridPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            prefHeight="400.0" prefWidth="600.0"
-            stylesheets="mercedes_application.css">
+          xmlns:fx="http://javafx.com/fxml"
+          prefHeight="400.0" prefWidth="600.0"
+          stylesheets="mercedes_application.css">
 
     <Label text="Vehicle ID:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
     <Button fx:id="getImage" text="Get Image" onAction="#onGetImageId" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
-    <TextField fx:id="vehicleIdTextField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+    <ComboBox fx:id="vehicleIdOptions" promptText="Choose Vehicle ID">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="WDD2132231A444556"/>
+                <String fx:value="WDD2054661F444556"/>
+                <String fx:value="WDD2314731F444556"/>
+                <String fx:value="WME4534911K444556"/>
+            </FXCollections>
+        </items>
+    </ComboBox>
 
     <RadioButton fx:id="interior" text="Interior View" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
     <RadioButton fx:id="exterior" text="Exterior View" GridPane.rowIndex="3" GridPane.columnIndex="0"/>

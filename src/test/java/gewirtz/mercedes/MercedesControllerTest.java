@@ -1,10 +1,8 @@
 package gewirtz.mercedes;
 
 import io.reactivex.rxjava3.core.Single;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
+import io.reactivex.rxjava3.schedulers.Schedulers;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import org.junit.BeforeClass;
@@ -24,17 +22,29 @@ public class MercedesControllerTest {
         });
     }
 
+    private void givenMercedesController(){
+        controller.exterior = mock(RadioButton.class);
+        controller.interior = mock(RadioButton.class);
+        controller.vehicleImage = mock(ImageView.class);
+        controller.getImage = mock(Button.class);
+        controller.toggleUnits = Arrays.asList(
+                controller.interior, controller.exterior
+        );
+        controller.roofOpenCheck = mock(CheckBox.class);
+        controller.backgroundCheck = mock(CheckBox.class);
+        controller.nightCheck = mock(CheckBox.class);
+        controller.jpegCheck = mock(CheckBox.class);
+        controller.vehicleIdOptions = mock(ComboBox.class);
+    }
+
     @Test
     public void initialize(){
         //given
         MercedesService service = mock(MercedesService.class);
         controller = new MercedesController(service);
-        controller.exterior = mock(RadioButton.class);
-        controller.interior = mock(RadioButton.class);
-        controller.vehicleImage = mock(ImageView.class);
-        controller.toggleUnits = Arrays.asList(
-                controller.interior, controller.exterior
-        );
+        givenMercedesController();
+        SingleSelectionModel<String> selectionModel = mock(SingleSelectionModel.class);
+        doReturn(selectionModel).when(controller.vehicleIdOptions).getSelectionModel();
 
         //when
         controller.initialize();
@@ -43,6 +53,7 @@ public class MercedesControllerTest {
         verify(controller.exterior).setSelected(true);
         verify(controller.vehicleImage).setFitHeight(500.00);
         verify(controller.vehicleImage).setFitWidth(600.00);
+        verify(controller.vehicleIdOptions).getSelectionModel();
     }
 
     @Test
@@ -50,20 +61,10 @@ public class MercedesControllerTest {
         //given
         MercedesService service = mock(MercedesService.class);
         controller = new MercedesController(service);
-
-        controller.vehicleIdTextField = mock(TextField.class);
-        controller.roofOpenCheck = mock(CheckBox.class);
-        controller.backgroundCheck = mock(CheckBox.class);
-        controller.nightCheck = mock(CheckBox.class);
-        controller.jpegCheck = mock(CheckBox.class);
-        controller.exterior = mock(RadioButton.class);
-        controller.interior = mock(RadioButton.class);
-        controller.toggleUnits = Arrays.asList(
-                controller.interior, controller.exterior
-        );
+        givenMercedesController();
 
         doReturn(Single.never()).when(service).getImageID("WDD2132231A444556", true, true, true, true);
-        doReturn("WDD2132231A444556").when(controller.vehicleIdTextField).getText();
+        doReturn("WDD2132231A444556").when(controller.vehicleIdOptions).getValue();
         doReturn(true).when(controller.roofOpenCheck).isSelected();
         doReturn(true).when(controller.backgroundCheck).isSelected();
         doReturn(true).when(controller.nightCheck).isSelected();
@@ -82,14 +83,7 @@ public class MercedesControllerTest {
         MercedesService service = mock(MercedesService.class);
         controller = new MercedesController(service);
         MercedesImageID imageId = mock(MercedesImageID.class);
-
-        controller.vehicleImage = mock(ImageView.class);
-        controller.getImage = mock(Button.class);
-        controller.exterior = mock(RadioButton.class);
-        controller.interior = mock(RadioButton.class);
-        controller.toggleUnits = Arrays.asList(
-                controller.interior, controller.exterior
-        );
+        givenMercedesController();
 
         doReturn(true).when(controller.toggleUnits.get(0)).isSelected();
         imageId.INT1 = "V0REMjEzMjIzMUE0NDQ1NTY6cm9vZk9wZW49dHJ1ZTpuaWdodD10cnVlOklOVDEucG5n";
@@ -107,14 +101,7 @@ public class MercedesControllerTest {
         MercedesService service = mock(MercedesService.class);
         controller = new MercedesController(service);
         MercedesImageID imageId = mock(MercedesImageID.class);
-
-        controller.vehicleImage = mock(ImageView.class);
-        controller.getImage = mock(Button.class);
-        controller.exterior = mock(RadioButton.class);
-        controller.interior = mock(RadioButton.class);
-        controller.toggleUnits = Arrays.asList(
-                controller.interior, controller.exterior
-        );
+        givenMercedesController();
 
         doReturn(true).when(controller.toggleUnits.get(1)).isSelected();
         imageId.EXT150 = "V0REMjEzMjIzMUE0NDQ1NTY6cm9vZk9wZW49dHJ1ZTpuaWdodD10cnVlOkVYVDMzMC5wbmc=";

@@ -7,11 +7,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.Image;
 
-import java.awt.*;
 import java.util.List;
 
 public class MercedesController {
@@ -21,11 +19,11 @@ public class MercedesController {
     @FXML
     RadioButton interior, exterior;
     @FXML
-    TextField vehicleIdTextField;
-    @FXML
     CheckBox roofOpenCheck, backgroundCheck, nightCheck, jpegCheck;
     @FXML
     ImageView vehicleImage;
+    @FXML
+    ComboBox<String> vehicleIdOptions;
     @FXML
     List<RadioButton> toggleUnits;
     private final ToggleGroup viewUnits = new ToggleGroup();
@@ -41,13 +39,13 @@ public class MercedesController {
             rb.setToggleGroup(viewUnits);
         }
         exterior.setSelected(true);
-
+        vehicleIdOptions.getSelectionModel().select(0);
         vehicleImage.setFitHeight(500.00);
         vehicleImage.setFitWidth(600.00);
     }
 
     public void onGetImageId(){
-        String vehicleId = vehicleIdTextField.getText();
+        String vehicleId = vehicleIdOptions.getValue();
         Boolean roofOpen = roofOpenCheck.isSelected();
         Boolean night = nightCheck.isSelected();
         Boolean background = backgroundCheck.isSelected();

@@ -18,7 +18,7 @@ public class MercedesApplication extends Application {
 
         Parent parent = loader.load();
 
-        Scene scene = new Scene(parent, 500, 800);
+        Scene scene = new Scene(parent, 600, 600);
 
         stage.setTitle("Mercedes Application");
         stage.setScene(scene);

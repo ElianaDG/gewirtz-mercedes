@@ -41,7 +41,8 @@ public class MercedesControllerTest {
 
         //then
         verify(controller.exterior).setSelected(true);
-        verifyNoInteractions(controller.vehicleImage);
+        verify(controller.vehicleImage).setFitHeight(500.00);
+        verify(controller.vehicleImage).setFitWidth(600.00);
     }
 
     @Test

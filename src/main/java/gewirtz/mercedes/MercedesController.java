@@ -41,6 +41,9 @@ public class MercedesController {
             rb.setToggleGroup(viewUnits);
         }
         exterior.setSelected(true);
+
+        vehicleImage.setFitHeight(500.00);
+        vehicleImage.setFitWidth(600.00);
     }
 
     public void onGetImageId(){
@@ -71,6 +74,7 @@ public class MercedesController {
         String imageUrl = "https://api.mercedes-benz.com/tryout/vehicle_images/v1/images/".concat(viewId);
         String fullUrl = imageUrl.concat("?apikey=d705585c-a672-11ea-bb37-0242ac130002");
         vehicleImage.setImage(new Image(fullUrl));
+
     }
 
     public void onError(Throwable throwable) {
